@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Pesca de Valheim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Guía de Pesca de Valheim</h1>
+    <p class="subtitulo">Todos los peces, su carnada y el bioma donde aparecen</p>
+  </header>
+
+  <main>
+    <section class="filtros">
+      <div class="filtro-campo">
+        <label for="buscador">Buscar pez</label>
+        <input type="text" id="buscador" placeholder="Ej: rape, tetra, lucio...">
+      </div>
+
+      <div class="filtro-campo">
+        <label for="filtro-bioma">Filtrar por bioma</label>
+        <select id="filtro-bioma">
+          <option value="todos">Todos los biomas</option>
+        </select>
+      </div>
+    </section>
+
+    <table id="tabla-peces">
+      <thead>
+        <tr>
+          <th>Pez</th>
+          <th>Carnada</th>
+          <th>Cómo se consigue</th>
+          <th>Bioma / Lugar</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla">
+        <!-- Las filas se generan dinámicamente con script.js -->
+      </tbody>
+    </table>
+
+    <p id="sin-resultados" class="oculto">No se encontró ningún pez con ese criterio.</p>
+  </main>
+
+  <footer>
+    <p>Datos e imágenes obtenidos de la wiki de Valheim (Fandom).</p>
+  </footer>
+
+  <div id="vista-previa">
+    <img id="vista-previa-img" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

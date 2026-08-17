@@ -1,0 +1,277 @@
+:root {
+  --fondo: #1c1a14;
+  --fondo-panel: #2a2519;
+  --fondo-fila: #241f16;
+  --fondo-fila-hover: #332c1d;
+  --borde: #4a4028;
+  --dorado: #c9a84c;
+  --dorado-claro: #e8cf85;
+  --texto: #ece4cf;
+  --texto-tenue: #a89b7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2a2519, var(--fondo) 65%);
+  color: var(--texto);
+  font-family: "Segoe UI", Verdana, sans-serif;
+  padding-bottom: 3rem;
+}
+
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  border-bottom: 2px solid var(--borde);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--dorado-claro);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.subtitulo {
+  margin: 0.5rem 0 0;
+  color: var(--texto-tenue);
+  font-size: 1rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--fondo-panel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtro-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filtro-campo label {
+  font-size: 0.85rem;
+  color: var(--dorado);
+}
+
+.filtro-campo input,
+.filtro-campo select {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.95rem;
+}
+
+.filtro-campo input:focus,
+.filtro-campo select:focus {
+  outline: none;
+  border-color: var(--dorado);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--fondo-panel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead th {
+  background: #33291a;
+  color: var(--dorado-claro);
+  text-align: left;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--borde);
+}
+
+tbody tr {
+  background: var(--fondo-fila);
+  border-bottom: 1px solid var(--borde);
+  transition: background 0.15s ease;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--fondo-fila-hover);
+}
+
+td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+.celda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.celda-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #14120c;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.celda-item span {
+  font-size: 0.95rem;
+}
+
+.bioma,
+.receta {
+  color: var(--texto-tenue);
+  font-size: 0.9rem;
+}
+
+.receta-nota {
+  display: block;
+  color: var(--dorado);
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.receta-ingredientes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.celda-item--chico img {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+}
+
+.celda-item--chico span {
+  font-size: 0.85rem;
+}
+
+.celda-item--bioma img {
+  object-fit: cover;
+  padding: 0;
+}
+
+.receta-mas {
+  color: var(--dorado);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.bioma-detalle {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+#sin-resultados {
+  text-align: center;
+  color: var(--texto-tenue);
+  margin-top: 1.5rem;
+}
+
+.oculto {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  color: var(--texto-tenue);
+  font-size: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+.celda-item img {
+  cursor: zoom-in;
+}
+
+#vista-previa {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 8, 4, 0.6);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+#vista-previa.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#vista-previa img {
+  width: min(320px, 70vw);
+  height: min(320px, 70vw);
+  object-fit: contain;
+  background: var(--fondo-panel);
+  border: 3px solid var(--dorado);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 640px) {
+  thead {
+    display: none;
+  }
+
+  table, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+
+  tbody tr {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  td {
+    padding: 0.4rem 0.5rem;
+  }
+
+  td::before {
+    content: attr(data-etiqueta);
+    display: block;
+    font-size: 0.75rem;
+    color: var(--dorado);
+    margin-bottom: 0.2rem;
+  }
+}
